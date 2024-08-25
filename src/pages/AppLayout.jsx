@@ -1,11 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import SideBar from "../components/SideBar";
+import styles from "./AppLayout.module.css";
+import Map from "../components/Map";
 
 export default function AppLayout() {
   return (
-    <>
-      <div>AppLayout</div>
-      <Link to={"/"}>Go to Home</Link>
-    </>
+    <div className={styles.app}>
+      <SideBar />
+      <Map />
+    </div>
   );
 }
