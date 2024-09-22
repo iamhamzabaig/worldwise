@@ -12,6 +12,7 @@ import Form from "./components/Form";
 import CountriesList from "./components/CountriesList";
 import { CitiesProvider } from "./contexts/CitiesContext";
 import { AuthProvider } from "./contexts/FakeAuthContext";
+import ProtectedRoutes from "./pages/ProtectedRoutes";
 
 function App() {
   return (
@@ -22,7 +23,14 @@ function App() {
             <Route index element={<HomePage />} />
             <Route path="product" element={<Product />} />
             <Route path="pricing" element={<Pricing />} />
-            <Route path="app" element={<AppLayout />}>
+            <Route
+              path="app"
+              element={
+                <ProtectedRoutes>
+                  <AppLayout />
+                </ProtectedRoutes>
+              }
+            >
               <Route index element={<CityList />} />
               <Route path="cities" element={<CityList />} />
               <Route path="cities/:id" element={<City />} />
